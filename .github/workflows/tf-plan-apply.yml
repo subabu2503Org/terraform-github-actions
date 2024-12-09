@@ -3,7 +3,8 @@ name: Terraform PlanApply
 on:
   workflow_run:
     workflows: [Terraform Unit Tests]
-    types: [completed]
+    types:
+      - completed
   push:
     branches:
     - main
