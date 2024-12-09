@@ -1,16 +1,11 @@
-name: Terraform PlanApply
+name: Terraform Plan/Apply
 
 on:
   workflow_run:
     workflows: [Terraform Unit Tests]
     types:
       - completed
-  push:
-    branches:
-    - main
-  pull_request:
-    branches:
-    - main
+  
 
 #Special permissions required for OIDC authentication
 permissions:
