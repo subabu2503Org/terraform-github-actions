@@ -44,9 +44,9 @@ jobs:
         sarif_file: results.sarif
         category: checkov
   # Publish test results for modules
-  # Shout out to Adin Ermie for this one! https://adinermie.com/publishing-checkov-terraform-quality-checks-to-azure-devops-pipelines/
     - name: PublishTestResults@2
       if: success() || failure()
+      uses: github/PublishTestResults@2
       with:
         testResultsFormat: 'JUnit'
         testResultsFiles: '**/*Checkov-Module-Report.xml'
