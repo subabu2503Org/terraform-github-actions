@@ -32,6 +32,5 @@ resource "azurerm_storage_account" "my_storage_account" {
   resource_group_name      = var.resource_group_name
   account_tier             = "Standard"
   account_replication_type = "GRS"
-  // This line is the potential issue flagged by Checkov
   access_tier              = "Hot"
 }
