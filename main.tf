@@ -27,7 +27,7 @@ resource "azurerm_resource_group" "rg" {
   location = var.location
 }
 resource "azurerm_storage_account" "my_storage_account" {
-  name                     = "myazstorageaccountsbw1000"
+  name                     = "myazstorageactsbw1000"
   location                 = var.location
   resource_group_name      = var.resource_group_name
   account_tier             = "Standard"
