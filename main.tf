@@ -22,7 +22,16 @@ provider "azurerm" {
 }
 
 # Define any Azure resources to be created here. A simple resource group is shown here as a minimal example.
-resource "azurerm_resource_group" "rg-aks" {
+resource "azurerm_resource_group" "rg" {
   name     = var.resource_group_name
   location = var.location
+}
+resource "azurerm_storage_account" "my_storage_account" {
+  name                     = "myazstorageaccountsbw1000"
+  resource_group_name     = var.resource_group_name
+  account_tier            = "Standard"
+  account_replication_type = "GRS"
+  // This line is the potential issue flagged by Checkov
+  access_tier             = "Hot"
+  storage_account_type = "BlobStorage"
 }
