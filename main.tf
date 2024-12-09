@@ -28,10 +28,10 @@ resource "azurerm_resource_group" "rg" {
 }
 resource "azurerm_storage_account" "my_storage_account" {
   name                     = "myazstorageaccountsbw1000"
-  resource_group_name     = var.resource_group_name
-  account_tier            = "Standard"
+  location                 = var.location
+  resource_group_name      = var.resource_group_name
+  account_tier             = "Standard"
   account_replication_type = "GRS"
   // This line is the potential issue flagged by Checkov
-  access_tier             = "Hot"
-  storage_account_type = "BlobStorage"
+  access_tier              = "Hot"
 }
