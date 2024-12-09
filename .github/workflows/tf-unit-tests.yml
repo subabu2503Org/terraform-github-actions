@@ -46,7 +46,7 @@ jobs:
   # Publish test results for modules
     - name: PublishTestResults@2
       if: success() || failure()
-      uses: github/PublishTestResults@2
+      uses: github/codeql-action/PublishTestResults@2
       with:
         testResultsFormat: 'JUnit'
         testResultsFiles: '**/*Checkov-Module-Report.xml'
