@@ -26,3 +26,14 @@ resource "azurerm_resource_group" "rg" {
   name     = var.resource_group_name
   location = var.location
 }
+
+# Creating an Azure Storage Account with public access enabled
+resource "azurerm_storage_account" "my_storage_account" {
+  name                     = "mystorageaccount"
+  resource_group_name     = "myresourcegroup"
+  account_tier            = "Standard"
+  account_replication_type = "GRS"
+  # This setting allows public access to the storage account, flagged by tfsec
+  access_tier             = "Hot"
+  enable_public_network_access = true
+}
