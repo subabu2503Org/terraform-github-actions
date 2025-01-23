@@ -1,4 +1,4 @@
-name: tfsec
+name: "TFsec Sarif"
 on:
   push:
     branches:
