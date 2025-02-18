@@ -26,14 +26,16 @@ resource "azurerm_resource_group" "rg" {
   name     = var.resource_group_name
   location = var.location
 }
-
-# Creating an Azure Storage Account with public access enabled
+resource "random_id" "storage_account" {
+  byte_length = 8
+}
+# Creating an Azure Storage Account with public access disabled
 resource "azurerm_storage_account" "my_storage_account" {
-  name                     = "mystorageaccount"
-  resource_group_name     = "myresourcegroup"
+  name                    = "tfsta${lower(random_id.storage_account.hex)}"
+  resource_group_name     = "${azurerm_resource_group.rg.name}"
   account_tier            = "Standard"
-  account_replication_type = "GRS"
+  account_replication_type = "LRS"
   # This setting allows public access to the storage account, flagged by tfsec
   access_tier             = "Hot"
-  enable_public_network_access = true
+  enable_public_network_access = false
 }
