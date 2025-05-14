@@ -36,6 +36,6 @@ resource "azurerm_storage_account" "my_storage_account" {
   account_tier            = "Standard"
   account_replication_type = "LRS"
   # This setting allows public access to the storage account, flagged by tfsec
-  access_tier             = "Hot"
+  access_tier             = "Cool"
   enable_public_network_access = false
 }
